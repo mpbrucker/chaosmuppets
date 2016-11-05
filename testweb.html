@@ -1,31 +1,43 @@
 <head>
+	<meta charset="utf-8"/>
 	<script type="text/javascript" src="./libgif.js"></script>
+	<!--<script type="text/javascript" src="./test.js"></script>-->
 	<link rel="stylesheet" type="text/css" href="default.css" media="screen" />
 </head>
 <body>
-
 test
 <div id="cont">
-	<img id="background" src="images/1.gif" rel:auto_play="0"/>
+	<img id="background" src="images/1.gif"/>
 </div>
-<script type="text/javascript">
-	var bg = new SuperGif({ gif: document.getElementById("background") } );
-bg.load();
+<script>
+var bg = new SuperGif({ gif: document.getElementById("background") } );
+var frames = 5;
+var bpm = 180;
+var delay = (60/bpm)*(1000/frames);
+console.log(delay);
+bg.load(function() {
 bg.pause();
+var frameNext = window.setInterval(changeGif,delay);
+});
+
+
+function changeGif() {
+	bg.move_relative(1);
+}
 
 var canvas = bg.get_canvas();
 canvas.setAttribute("id","background");
 
+
 document.onkeypress = function (e) {
-	e = e || window.event;
-	bg.move_relative(1);
-	if (e == 37) {
-		bg.move_relative(-1);
-	}
-	else if (e == 39) {
-		bg.move_relative(1);
-	}
+        e = e || window.event;
+        bg.move_relative(1);
+        if (e == 37) {
+                bg.move_relative(-1);
+        }
+        else if (e == 39) {
+                bg.move_relative(1);
+        }
 }
 </script>
-<script type="text/javascript" src="./test.jss"></script>
 </body>
