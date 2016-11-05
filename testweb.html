@@ -3,17 +3,18 @@
 	<link rel="stylesheet" type="text/css" href="default.css" media="screen" />
 </head>
 <body>
-<!--
+
 test
-<div id="bg">
+<div id="cont">
 	<img id="background" src="images/1.gif" rel:auto_play="0"/>
 </div>
--->
-<img id="background" src="images/2.gif" rel:auto_play="0"/>
 <script type="text/javascript">
 	var bg = new SuperGif({ gif: document.getElementById("background") } );
 bg.load();
 bg.pause();
+
+var canvas = bg.get_canvas();
+canvas.setAttribute("id","background");
 
 document.onkeypress = function (e) {
 	e = e || window.event;
@@ -26,4 +27,5 @@ document.onkeypress = function (e) {
 	}
 }
 </script>
+<script type="text/javascript" src="./test.jss"></script>
 </body>

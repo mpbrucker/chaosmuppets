@@ -2,6 +2,7 @@ var docBack = document.querySelector("body");
 
 var switchImg = window.setInterval(changeBack,1000);
 var counter = 0;
+var bg = new SuperGif
 
 
 function changeBack() {
@@ -16,4 +17,5 @@ function changeBack() {
 	docBack.style.backgroundSize = 'cover'; 
 }
 }
+
 	
