@@ -36,8 +36,17 @@ body {
 }
 
 .child {
-  position: absolute;
+  background: aliceblue;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 30%;
+  width: 30%;
+}
+
+.buttondiv {
+  position: relative;
+  top: 70%;
+  left: 50%;
 }
