@@ -10,27 +10,21 @@ test
 	<img id="background"  class="image" src="images/1.gif"/>
 </div>
 <script>
-function loadGifs() {
-	imgref = document.getElementsByClassName("image");
-	makeGif();
-	var gifTimeout = window.setTimeout(function() {
-		ref = document.getElementsByClassName("image");
-		ref[0].src = "images/2.gif";
-		makeGif();
-	}, 2000);
-
-}
 makeGif();
 
 function makeGif() {
+	var framesCount = [5,5,6,8,10];
+	var index = Math.round(Math.random()*4)+1;	
+	var imgurl = "images/" + index.toString() + ".gif"
+
 	imgref = document.getElementById("background");
+	imgref.src = imgurl;
 	var bg = new SuperGif({ gif: imgref, progressbar_height: 0 } );
-	var frames = 5;
+	var frames = framesCount[index-1];
 	var bpm = Number(window.location.search.substring(1));
 	if(isNaN(bpm)){
 		bpm = 120;
 	}
-	alert(bpm);
 	var delay = (60/bpm)*(1000/frames);
 	bg.load(function() {
         	bg.pause();
