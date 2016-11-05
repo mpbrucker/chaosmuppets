@@ -17,10 +17,10 @@ var songIndex;
 
 function makeGif() {
 	var gifCount = 13;
-	var songCount = 15;
+	var songCount = 18;
 	var framesCount = [5, 5, 6, 4, 10, 7, 11, 7, 15, 9, 5.5, 13, 15.5];
-	var bpmArray = [94,95,104,110,122, 122,137,140,158,142, 143,147,150,157,157];
-	songTitles = ["Stars to a Balck Road", "The Man For Power", "Warmth And Honest Everything", "The Suns To A Star", "Forest Goes Faithfully", "Hard Joy With A Star", "Warmth With An Endless Word", "The Nice Angel Comes To A Candle", "The Roads Stop Mournful Glamour", "A Quiet Word Wishes", "Blind Love Wishes", "The Star Wishes", "Endless Life For a World", "You Dream About LIfe", "Weakenss for Magic Life"];
+	var bpmArray = [94,95,104,110,122, 122,137,140,158,142, 143,147,150,157,157,74,79,158];
+	songTitles = ["Stars to a Black Road", "The Man For Power", "Warmth And Honest Everything", "The Suns To A Star", "Forest Goes Faithfully", "Hard Joy With A Star", "Warmth With An Endless Word", "The Nice Angel Comes To A Candle", "The Roads Stop Mournful Glamour", "A Quiet Word Wishes", "Blind Love Wishes", "The Star Wishes", "Endless Life For a World", "You Dream About LIfe", "Weakness for Magic Life", "Nothing Calls Everything", "Nothing Says A Lively Smoke", "Glamour Talks To The Shy Roses"];
 
 	var index = Math.round(Math.random()*(gifCount-1))+1;
 	songIndex = Math.round(Math.random()*(songCount-1))+1;
@@ -67,6 +67,6 @@ window.onload = function() {
 <audio autoplay id="music">
 </audio>
 <div id="centering">
-<p id="songTitle">Text shit</p>
+<p id="songTitle"></p>
 </div>
 </body>
