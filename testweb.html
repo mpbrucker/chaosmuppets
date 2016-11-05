@@ -7,28 +7,38 @@
 <body>
 test
 <div id="cont">
-	<img id="background" src="images/1.gif"/>
+	<img id="background"  class="image" src="images/1.gif"/>
 </div>
 <script>
-var bg = new SuperGif({ gif: document.getElementById("background") } );
-var frames = 5;
-var bpm = 180;
-var delay = (60/bpm)*(1000/frames);
-console.log(delay);
-bg.load(function() {
-bg.pause();
-var frameNext = window.setInterval(changeGif,delay);
-});
+function loadGifs() {
+	imgref = document.getElementsByClassName("image");
+	makeGif();
+	var gifTimeout = window.setTimeout(function() {
+		ref = document.getElementsByClassName("image");
+		ref[0].src = "images/2.gif";
+		makeGif();
+	}, 2000);	 
 
-
-function changeGif() {
-	bg.move_relative(1);
 }
+makeGif();
 
-var canvas = bg.get_canvas();
-canvas.setAttribute("id","background");
+function makeGif() {
+	imgref = document.getElementById("background");
+	var bg = new SuperGif({ gif: imgref, progressbar_height: 0 } );
+	var frames = 5;
+	var bpm = 60;
+	var delay = (60/bpm)*(1000/frames);
+	bg.load(function() {
+        	bg.pause();
+		var loopGif = window.setInterval(changeGif,delay);
+	});
+	var canvas = bg.get_canvas();
+	canvas.setAttribute("id","background");
 
-
+	function changeGif() {
+		bg.move_relative(1);
+	}
+}
 document.onkeypress = function (e) {
         e = e || window.event;
         bg.move_relative(1);
