@@ -11,17 +11,20 @@ test
 </div>
 <script>
 makeGif();
-
+var songurl;
 function makeGif() {
 	var framesCount = [5,5,6,8,10];
+	var bpmArray = [120, 100];
 	var index = Math.round(Math.random()*4)+1;
+	var songIndex = Math.round(Math.random()*2)+1;
 	var imgurl = "images/" + index.toString() + ".gif";
+	songurl = "music/" + songIndex.toString() + ".mp3";
 
 	imgref = document.getElementById("background");
 	imgref.src = imgurl;
 	var bg = new SuperGif({ gif: imgref, progressbar_height: 0 } );
 	var frames = framesCount[index-1];
-	var bpm = Number(window.location.search.substring(1));
+	var bpm = bpmArray[songIndex-1];
 	if(isNaN(bpm)){
 		bpm = 120;
 	}
@@ -37,20 +40,20 @@ function makeGif() {
 		bg.move_relative(1);
 	}
 }
-document.onkeypress = function (e) {
-        e = e || window.event;
-        bg.move_relative(1);
-        if (e == 37) {
-                bg.move_relative(-1);
-        }
-        else if (e == 39) {
-                bg.move_relative(1);
-        }
+
+document.onclick = function() {
+	location.reload();
+}
+document.onkeydown = function() {
+	location.reload();
 }
 
+
+
+window.onload = function() {
+	document.getElementById("music").innerHTML="<source src=\""+ songurl + "\" type=\"audio/mpeg\">";
+}
 </script>
-<audio autoplay>
-	<source src="music.mp3" type="audio/mpeg">
-	Your browser does not support the audio element.
+<audio autoplay id="music">
 </audio>
 </body>

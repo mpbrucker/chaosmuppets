@@ -35,18 +35,9 @@ body {
 	min-height: 50%;
 }
 
-.child {
-  background: aliceblue;
-  position: relative;
+.button {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 30%;
-  width: 30%;
-}
-
-.buttondiv {
-  position: relative;
-  top: 70%;
-  left: 50%;
 }
