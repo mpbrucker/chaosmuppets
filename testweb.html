@@ -17,7 +17,7 @@ function loadGifs() {
 		ref = document.getElementsByClassName("image");
 		ref[0].src = "images/2.gif";
 		makeGif();
-	}, 2000);	 
+	}, 2000);
 
 }
 makeGif();
@@ -26,7 +26,11 @@ function makeGif() {
 	imgref = document.getElementById("background");
 	var bg = new SuperGif({ gif: imgref, progressbar_height: 0 } );
 	var frames = 5;
-	var bpm = 60;
+	var bpm = Number(window.location.search.substring(1));
+	if(isNaN(bpm)){
+		bpm = 120;
+	}
+	alert(bpm);
 	var delay = (60/bpm)*(1000/frames);
 	bg.load(function() {
         	bg.pause();
