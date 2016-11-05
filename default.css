@@ -8,6 +8,7 @@ body {
 	left: -50%;
 	width: 200%;
 	height: 200%;
+	z-index: 1;
 }
 
 
@@ -20,4 +21,21 @@ body {
 	margin: auto;
 	min-width: 50%;
 	min-height: 50%;
+	z-index: 1;
+}
+
+#songTitle {
+	position: absolute;;
+	color: white;
+	z-index: 50;
+	left: 50%;
+	margin-right: -50%;
+  transform: translate(-50%, -50%);
+	font-size: 49px;
+	font-family: fantasy;
+}
+
+#centering {
+	height: 60%;
+  position: relative
 }

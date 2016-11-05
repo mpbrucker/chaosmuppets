@@ -5,27 +5,30 @@
 	<link rel="stylesheet" type="text/css" href="default.css" media="screen" />
 </head>
 <body>
-test
+<p>test</p>
 <div id="cont">
 	<img id="background"  class="image" src="images/1.gif"/>
 </div>
 <script>
 makeGif();
 var songurl;
+var songTitles;
+var songIndex;
+
 function makeGif() {
 	var gifCount = 13;
 	var songCount = 15;
 	var framesCount = [5, 5, 6, 4, 10, 7, 11, 7, 15, 9, 5.5, 13, 15.5];
 	var bpmArray = [94,95,104,110,122, 122,137,140,158,142, 143,147,150,157,157];
-	var songTitles = ["Stars to a Balck Road", "The Man For Power", "Warmth And Honest Everything", "The Suns To A Star", "Forest Goes Faithfully", "Hard Joy With A Star", "Warmth With An Endless Word", "The Nice Angel Comes To A Candle", "The Roads Stop Mournful Glamour", "A Quiet Word Wishes", "Blind Love Wishes", "The Star Wishes", "Endless Life For a World", "You Dream About LIfe", "Weakenss for Magic Life"];
+	songTitles = ["Stars to a Balck Road", "The Man For Power", "Warmth And Honest Everything", "The Suns To A Star", "Forest Goes Faithfully", "Hard Joy With A Star", "Warmth With An Endless Word", "The Nice Angel Comes To A Candle", "The Roads Stop Mournful Glamour", "A Quiet Word Wishes", "Blind Love Wishes", "The Star Wishes", "Endless Life For a World", "You Dream About LIfe", "Weakenss for Magic Life"];
 
 	var index = Math.round(Math.random()*(gifCount-1))+1;
-	var songIndex = Math.round(Math.random()*(songCount-1))+1;
+	songIndex = Math.round(Math.random()*(songCount-1))+1;
 	var imgurl = "images/" + index.toString() + ".gif";
 	songurl = "music/" + songIndex.toString() + ".mp3";
 
 	document.title = bpmArray[songIndex-1].toString() + ": " + songTitles[songIndex-1];
-	
+
 	imgref = document.getElementById("background");
 	imgref.src = imgurl;
 	var bg = new SuperGif({ gif: imgref, progressbar_height: 0 } );
@@ -58,8 +61,12 @@ document.onkeydown = function() {
 
 window.onload = function() {
 	document.getElementById("music").innerHTML="<source src=\""+ songurl + "\" type=\"audio/mpeg\">";
+	document.getElementById("songTitle").innerHTML=songTitles[songIndex-1];
 }
 </script>
 <audio autoplay id="music">
 </audio>
+<div id="centering">
+<p id="songTitle">Text shit</p>
+</div>
 </body>
